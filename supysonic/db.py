@@ -37,7 +37,7 @@ class UnicodeOrStrVariable(Variable):
 		if isinstance(value, unicode):
 			return value
 		elif isinstance(value, str):
-			return unicode(value)
+			return unicode(value, "UTF-8")
 		raise TypeError("Expected unicode, found %r: %r" % (type(value), value))
 
 Unicode.variable_class = UnicodeOrStrVariable
