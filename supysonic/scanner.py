@@ -42,7 +42,7 @@ class Scanner:
 		self.__extensions = map(str.lower, extensions.split()) if extensions else None
 
 	def scan(self, folder, progress_callback = None):
-		files = [ os.path.join(root, f) for root, _, fs in os.walk(folder.path) for f in fs if self.__is_valid_path(os.path.join(root, f)) ]
+		files = [ os.path.join(root, f) for root, _, fs in os.walk(folder.path.encode('utf8')) for f in fs if self.__is_valid_path(os.path.join(root, f)) ]
 		total = len(files)
 		current = 0
 
